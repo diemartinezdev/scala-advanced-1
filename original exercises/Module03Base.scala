@@ -16,38 +16,9 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
   // StringReverser should take a string and return the value of String.reverse
   // SeqReverser should take a Sequence and return the value of Seq.reverse
 
-
-  // Provide a ReverserTrait that takes an abstract type, and has a single abstract method
-  // called reverse.
-  // Also provide one concrete method implementation defined only in ReverserTrait called canReverse that returns true
-  // Then provide three concrete implementations to satisfy the tests below, uncomment the tests, and make sure they work.
-  // BooleanReverser should take a boolean and return the logical not of that value
-  // StringReverser should take a string and return the value of String.reverse
-  // SeqReverser should take a Sequence and return the value of Seq.reverse
-  trait ReverserTrait {
-    type T
-    def reverse(toReverse: T): T
-    def canReverse = true
-  }
-
-  class BooleanReverser extends ReverserTrait {
-    type T = Boolean
-    def reverse(b: Boolean) = !b
-  }
-
-  class StringReverser extends ReverserTrait {
-    type T = String
-    def reverse(s: String) = s.reverse
-  }
-
-  class SeqReverser extends ReverserTrait {
-    type T = Seq[Any]
-    def reverse(s: Seq[Any]) = s.reverse
-  }
-
   // uncomment the tests below to make sure the traits and classes work as expected
   describe("ReverserTrait") {
-
+    /*
     describe ("through BooleanReverser") {
       it ("should reverse Booleans to their logical not") {
         val boolReverse = new BooleanReverser
@@ -76,20 +47,14 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
         assert(seqReverse.reverse(List(1,2,3)) === List(3,2,1))
         assert(seqReverse.reverse(List("does", "it", "work")) === List("work", "it", "does"))
       }
-    }
+    }*/
 
 
     // now provide another implementation of ReverserTrait called IntReverser which reports false back to
     // the canReverse query, and throws an IllegalStateException if you try and reverse it
-
-    class IntReverser extends ReverserTrait {
-      type T = Int
-      override val canReverse = false
-      def reverse(i: Int): Int = throw new IllegalStateException("Cannot reverse an int")
-    }
     // Uncomment the test below to make sure it works
 
-     describe ("through IntReverser") {
+    /* describe ("through IntReverser") {
       it ("should not allow reversal of an Int") {
         val intReverse = new IntReverser
         intReverse.isInstanceOf[ReverserTrait] should be (true)
@@ -98,102 +63,37 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
           intReverse.reverse(6) should not be (6)  // it should throw an exception instead!
         }
       }
-    }
+    }*/
   }
-
 
   // create a trait called Ammunition that has an abstract method, spent, that returns a Boolean
   // and a val, weight, that returns an Int
-  trait Ammunition {
-    def spent: Boolean
-    val weight: Int
-  }
 
   // Create a trait called RangeWeapon with an abstract SuitableAmmunition type that must be a kind of
   // Ammunition (from the trait above), a load method that takes that suitable kind
   // of ammunition and returns a Boolean
   // an abstract method shoot that returns an Optional instance of the ammunition, and another abstract method
   // weight of type Int
-  trait RangeWeapon {
-    type SuitableAmmunition <: Ammunition
-    def shoot(): Option[SuitableAmmunition]
-    def load(ammo: SuitableAmmunition): Boolean
-    def weight: Int
-  }
-
 
   // now create three ammunition types with the following characteristics:
   // Bullet, weight 1, spent is true if ever fired, false otherwise (implementation is up to you)
-  class Bullet extends Ammunition {
-    val weight = 1
-    private var fired = false
-    def spent = fired
-    def fire: Bullet = {
-      fired = true; this
-    }
-  }
+
   // Bolt, weight 3, spent is always false
-  class Bolt extends Ammunition {
-    val weight = 3
-    val spent = false
-  }
+
   // Charge, weight 0, spent is always true
-  class Charge extends Ammunition {
-    val weight = 0
-    val spent = true
-  }
+
   // and three RangeWeapons:
   // A SixShooter, that can be loaded up to 6 times, can only shoot bullets, and can only shoot them while
   // it has ammo left. When out, it will return None rather than Some(Bullet). Weight should be computed as 10
   // plus the weight of the number of bullets. If the gun is full (6 bullets already), do not add the bullet and return
   // false, otherwise return true. Shooting the gun should return a spent bullet and remove it from the ammo list
-  class SixShooter extends RangeWeapon {
-    type SuitableAmmunition = Bullet
-    private[this] var bullets = List.empty[Bullet]
-    def load(bullet: Bullet) =
-      if (bullets.length < 6) {
-        bullets = bullet :: bullets
-        true
-      }
-      else false
-
-    def shoot() =
-      if (!bullets.isEmpty) {
-        val bullet = bullets.head
-        bullets = bullets.tail
-        Some(bullet.fire)
-      }
-      else None
-
-    val gunWeight = 10
-    def weight = gunWeight + bullets.foldLeft(0)(_ + _.weight)
-  }
 
   // a Crossbow which has Bolt as its suitable ammo, has weight of 15 plus the weight of the bolt only if loaded,
   // returns Bolt from the shoot if there is a bolt to be fired, or None otherwise, may only be loaded with one
   // Bolt at a time, and returns false if you try and load it with another Bolt. Since Bolts may be re-used, there
   // is no need to change the state of spent (if you implemented spent in the best way for Bolt, you won't be able
   // to change it anyway - hint hint).
-  class Crossbow extends RangeWeapon {
-    type SuitableAmmunition = Bolt
-    private[this] var bolt: Option[Bolt] = None
-    def load(theBolt: Bolt) =
-      if (bolt.isEmpty) {
-        bolt = Some(theBolt)
-        true
-      }
-      else false
 
-    def shoot() =
-      if (bolt.isEmpty) None
-      else {
-        val theBolt = bolt
-        bolt = None
-        theBolt
-      }
-
-    def weight = 15 + (if (bolt.isEmpty) 0 else bolt.get.weight)
-  }
   // and a blaster, which has ammunition of Charge, always returns a weight of 5 (whether loaded or not). Any time
   // the load is called, the charger is recharged to full, and on a full charge it can shoot three shots. Shoot always
   // returns None (since there is nothing physical output from the gun firing, just energy). If you like, you can
@@ -201,25 +101,9 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
   // so we can see when the blaster is empty. Loading the blaster with a charge, always returns true, even if it is
   // fully charged, but only allows a maximum of three shots still
 
-  class Blaster extends RangeWeapon {
-    type SuitableAmmunition = Charge
-    var shots = 0
-    val maxShots = 3
-    def empty = shots <= 0
-    def shoot() = {
-      if (shots > 0) {
-        shots -= 1
-      }
-      None
-    }
-    def load(charge: Charge) = {
-      shots = maxShots
-      true
-    }
-    val weight = 5
-  }
+
   // Now uncomment the following helper method and tests to ensure compliance
-   def checkWeaponWeight(weapon: RangeWeapon, weight: Int) = {
+  /* def checkWeaponWeight(weapon: RangeWeapon, weight: Int) = {
     assert(weapon.weight === weight)
   }
 
@@ -354,18 +238,14 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
       blaster.load(new Bullet)
       blaster.load(new Bolt)
     } */
-  }
+  }*/
 
   // Next, let's exercise our F bounded polymorphism chops. Alter the following class
   // so that it can be used in .sorted calls on a collection by implementing the
   // Ordered trait in its definition. Sort by year first and engine size next, both in
   // increasing order
 
-  case class Car(name: String, year: Int, engineSizeCCs: Int) extends Ordered[Car] {
-    override def compare(that: Car): Int = {
-      val yearDiff = year - that.year
-      if (yearDiff != 0) yearDiff else engineSizeCCs - that.engineSizeCCs
-    }
+  case class Car(name: String, year: Int, engineSizeCCs: Int) {
   }
 
   describe("Sorting cars by year and engine size") {
@@ -379,13 +259,13 @@ class Module03 extends FunSpec with Matchers with SeveredStackTraces {
       val cars = Vector(car1, car2, car3, car4, car5)
 
       //Uncomment these, then alter Car so that these compile and pass
-
+      /*
       cars.sorted should be (Vector(car4, car3, car1, car2, car5))
 
       car2 should be > car1
 
       car3 should be < car5
-
+      */
     }
   }
 }

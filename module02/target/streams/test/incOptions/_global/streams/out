@@ -1,0 +1,54 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module02\target\scala-2.12\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Pig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Ship$2$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Cow.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	KoanSuite.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Toothpick.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Toothpick$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Ship$2$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$TransportableItem.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Ship$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$10$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Pig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Piano.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$2$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$ReplaceWithCorrectException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Pig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Cow$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Toothpick$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Dock$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	StopOnFirstFailure.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Ship$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Person$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Livestock.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Toothpick.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Cow$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Cargo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Cow.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Cargo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Pig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Livestock.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$8$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$TransportableItem.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Piano$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$12.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Person$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Piano.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Piano$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Dock$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$___.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$5$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Car$10$CarImpl.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02$Person.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module02Solutions$Person.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module02\target\scala-2.12\test-classes.bak[0m

@@ -1,0 +1,30 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module03\target\scala-2.12\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$BooleanReverser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Car$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Ammunition.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$IntReverser$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$SeqReverser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03$Car.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Crossbow.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$ReverserTrait.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Blaster.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Charge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03$Car$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$___.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Bolt.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Bullet.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$Car.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	StopOnFirstFailure.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	KoanSuite.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$RangeWeapon.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$StringReverser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$ReplaceWithCorrectException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module03Solutions$SixShooter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module03\target\scala-2.12\test-classes.bak[0m

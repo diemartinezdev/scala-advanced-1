@@ -1,0 +1,29 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module06\target\scala-2.12\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$ReversableString$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$ReversableString$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$Reversable.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$ReplaceWithCorrectException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$Reversable.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$ReversableInt$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	KoanSuite.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$Car$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$Car.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$Car$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues$___.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$Car.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$Complex.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$ReverseAll.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$Complex.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$ReversableInt$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$CarOrdering$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06$$anonfun$reversableList$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BlankValues.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	StopOnFirstFailure.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module06Solutions$$anonfun$reversableList$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module06\target\scala-2.12\test-classes.bak[0m

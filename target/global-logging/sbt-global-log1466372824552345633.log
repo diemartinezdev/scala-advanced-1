@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test:compile, Some(432a9e60-2f77-4f6e-8ae4-dd3b748ad81e), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: module04 / Test / compile, module02 / Test / compile, module06 / Test / compile, module01 / Test / compile, module03 / Test / compile, module05 / Test / compile, Test / compile[0m
+[0m[[0m[33mwarn[0m] [0m[0msbt 0.13 shell syntax is deprecated; use slash syntax instead: module04 / Test / compile, module02 / Test / compile, module06 / Test / compile, module01 / Test / compile, module03 / Test / compile, module05 / Test / compile, Test / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 5 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module05\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 5 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module01\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module04\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 5 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module03\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 5 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module06\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 5 Scala sources to C:\Users\Diego Martinez\Documents\Scala\scala-advanced-part-1\exercises-advanced-part-1\module02\target\scala-2.12\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mNon-compiled module 'compiler-bridge_2.12' for Scala 2.12.17. Compiling...[0m
+[0m[[0m[0minfo[0m] [0m[0m  Compilation completed in 11.156s.[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 26 s, completed 13-nov-2023 14:39:59[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m

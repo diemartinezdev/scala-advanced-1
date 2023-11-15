@@ -9,8 +9,9 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
   // true if they are the same length, false otherwise. If you do it right, we should be able to compare a string
   // with a list and have true come out if they are the same length
 
+  def sameLength(l1: {def length: Int}, l2: {def length: Int}) = l1.length == l2.length
   // uncomment the following to test your sameLength implementation
-  /*
+
   describe("Function sameLength") {
 
     it("should compare 2 lists of the same length correctly") {
@@ -37,7 +38,7 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
       assertDoesNotCompile("""sameLength(5, "Hello")""")
     }
   }
-  */
+
 
   sealed trait Fruit
 
@@ -47,9 +48,9 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
 
   describe ("Using refinement types") {
     // create a method that returns the ph for a fruit but only if the fruit has a ph method
-
+  def phForFruit(fruit: Fruit {def ph: Int}): Int = fruit.ph
     // uncomment the following to test it
-    /*
+
     it ("should give ph for a Lemon") {
       val lemon = Lemon("Jif", 4)
       phForFruit(lemon) should be (4)
@@ -64,14 +65,14 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
       val banana = Banana("Fife", 328)
       assertDoesNotCompile("phForFruit(banana)")
     }
-    */
+
 
     // now create a mutable ListBuffer to which only Fruits with a ph can be added
     // and uncomment below to test it
 
     import scala.collection.mutable
+    val phFruits = mutable.ListBuffer.empty[Fruit {def ph: Int}]
 
-    /*
     describe ("Using a collection of ph Fruits") {
       it ("should only allow Fruits with a ph to be added") {
         phFruits += Lemon("Jif", 4)
@@ -85,13 +86,18 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
         meanPh should be (3.5 +- 1e-6)
       }
     }
-    */
+
   }
 
   // define an enumeration for DNA Nucleotides with the values A, C, G and T, and the names
   // Adenine, Cytosine, Guanine and Thymine so that the following tests pass, when uncommented
+  object Nucleotide extends Enumeration {
+    val A = Value("Adenine")
+    val C = Value("Cytosine")
+    val G = Value("Guanine")
+    val T = Value("Thymine")
+  }
 
-  /*
   describe("A string of DNA") {
     it("should map to a sequence of Nucleotide enumeration values") {
       import Nucleotide._
@@ -124,6 +130,6 @@ class Module04 extends FunSpec with Matchers with SeveredStackTraces {
       fullNames should be("Guanine Adenine Thymine Thymine Adenine Cytosine Adenine")
 
     }
-  }*/
+  }
 
 }

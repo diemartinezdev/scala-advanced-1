@@ -1,5 +1,8 @@
+import language.existentials
+
 // will not compile, try it
-//def lengthOfList(xs: List) = arr.size
+//def lengthOfListOrig[T](xs: List[T]) = xs.size
+//lengthOfListOrig(List(1,2,3))
 
 // using named existentials
 def lengthOfList(xs: List[T forSome {type T}]) = xs.length
@@ -41,14 +44,14 @@ maxSizeInSeq(Seq(
   Person("Fred", 21)
 ))
 
-val s: Any = "hello"
+val s: String = "hello"
+
+val as: Any = s
 
 // This will not compile, because scala can't type check it
-//s.charAt(1)
+s.charAt(1)
+//as.charAt(1)
 
 // but this will, "easy" reflection
 s.asInstanceOf[{def charAt(x: Int): Char}].charAt(1)
-
-
-
 

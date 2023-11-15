@@ -45,3 +45,4 @@ safeFeedToFruitEater(new AppleBowl)
 
 // and now this will no longer compile
 //safeFeedToFruitEater(new MuesliBowl)
+

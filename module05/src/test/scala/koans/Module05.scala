@@ -6,6 +6,8 @@ import org.scalatest.exceptions.TestFailedException
 import org.scalatest.{FunSuite, Matchers, SeveredStackTraces}
 import support.StopOnFirstFailure
 
+import scala.language.reflectiveCalls
+import scala.reflect.ClassTag
 import scala.util.control.NonFatal
 
 class Module05 extends FunSuite with Matchers with StopOnFirstFailure with SeveredStackTraces {
@@ -25,30 +27,38 @@ class Module05 extends FunSuite with Matchers with StopOnFirstFailure with Sever
   // that simply calls reverse on the string.
   // Make it implicit
 
+  implicit object ReversableString extends Reversable[String] {
+    def reverse(x: String): String = x.reverse
+  }
   // uncomment the following test to make sure it works
 
-  /*
+
   test("ReversableString reverses a given string") {
     reverse("hello") should be ("olleh")
     reverse("") should be ("")
   }
-  */
+
 
   // next define an object ReversableInt which does the same thing for a Reversable[Int], by reversing the digits
   // but still returning an Int, e.g. 1458 becomes 8541
+  implicit object ReversableInt extends Reversable[Int] {
+    def reverse(x: Int): Int = x.toString.reverse.toInt
+  }
 
-  /*
   test("ReversableInt reverses the digits in an Int") {
     reverse(12345) should be (54321)
     reverse(1) should be (1)
     reverse(100) should be (1) // this is why this is a bit of a crap example :-)
   }
-  */
+
 
   // Write an implicit def to compose any T with reversable into a reverser for a List of T
   // that reverses both the contents of the List, and the List itself. Uncomment below to test.
+  implicit def reversableList[T: Reversable]: Reversable[List[T]] = { (xs: List[T]) =>
+    val innerReverser = implicitly[Reversable[T]]
+    xs.map(innerReverser.reverse).reverse
+  }
 
-  /*
   test("Reverse a List of Ints") {
     reverse(List(123, 456, 100)) should be (List(1, 654, 321))
   }
@@ -56,7 +66,7 @@ class Module05 extends FunSuite with Matchers with StopOnFirstFailure with Sever
   test("Reverse a List of Strings") {
     reverse(List("hello", "world")) should be (List("dlrow", "olleh"))
   }
-  */
+
 
   test("Create your own intercept method") {
     // using an implicit class tag, create a new interceptException[T] method such that the following tests pass.
@@ -66,8 +76,18 @@ class Module05 extends FunSuite with Matchers with StopOnFirstFailure with Sever
     // If the exception is thrown in the function, ignore it as expected, if it is not, fail with a message
     // that the exception was not thrown. If another exception than the one expected is thrown, fail with a
     // suitable method as well.
+    def interceptException[T](fn: => Unit)(implicit ct: ClassTag[T]) {
+      try {
+        fn
+        fail("Expected exception %s but didn't get it".format(ct.runtimeClass.getName))
+      }
+      catch {
+        case NonFatal(th) if th.getClass == ct.runtimeClass => /* this is what we want - ignore */
+        case NonFatal(th) =>
+          fail("Expected exception %s but got exception %s".format(ct.runtimeClass.getName, th.getClass.getName))
+      }
+    }
 
-    /*
     // intercept a division by zero error
     interceptException[ArithmeticException] {
       val x = 1 / 0
@@ -87,7 +107,7 @@ class Module05 extends FunSuite with Matchers with StopOnFirstFailure with Sever
         val x = 1 / 0   // this is an ArithmeticException, not a NumberFormatException
       }
     }
-    */
+
   }
 
 
@@ -109,14 +129,39 @@ class Module05 extends FunSuite with Matchers with StopOnFirstFailure with Sever
       case class MaxTries(value: Int)
       case class Interval(value: Int)
 
+      implicit val maxTriesForEvaluating: MaxTries = MaxTries(10)
+      implicit val intervalForEvaluating: Interval = Interval(100)
+
       def eventually(f: => Unit) {
         val maxTries = MaxTries(10)
         val interval = Interval(100)
         eventuallyWith(maxTries.value, interval.value)(f)
       }
 
-      def eventuallyWith(maxTries: Int, interval: Int)(f: => Unit): Unit = ???
+      def eventuallyWith(maxTries: Int, interval: Int)(f: => Unit): Unit = {
+        var failedCount = 0
+        var succeeded = false
+        var optEx: Option[Throwable] = None
+        while (!succeeded && failedCount < maxTries) {
+          optEx =
+            try {
+              f
+              None
+            }
+            catch {
+              case e: Exception => Some(e)
+            }
+          succeeded = optEx.isEmpty
+          if (!succeeded) {
+            failedCount += 1
+            Thread.sleep(interval)
+          }
+        }
+        if (optEx.isDefined)
+          throw optEx.get
+      }
     }
+
 
     import Eventually._
 

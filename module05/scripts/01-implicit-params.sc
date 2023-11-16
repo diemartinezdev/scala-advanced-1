@@ -27,7 +27,7 @@ retry {
 
 //
 
-/*
+
 retry {
   println("trying")
   1 / 0
@@ -37,4 +37,3 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 
 Future(1)
- */

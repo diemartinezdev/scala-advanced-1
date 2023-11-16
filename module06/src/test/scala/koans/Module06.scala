@@ -34,7 +34,13 @@ class Module06 extends FunSuite with Matchers with StopOnFirstFailure with Sever
   // trait and implicit objects to the bottom of the file outside
   // of any other class, and extend AnyVal there
 
-  /*
+  implicit class ReverseAll[T: Reversable](x: T) {
+    def reverseIt: T = {
+      val theReverser = implicitly[Reversable[T]]
+      theReverser.reverse(x)
+    }
+  }
+
   test("reverseAll on a Sequence of Reversables should reverse the whole seq, and each item inside") {
     List(123, 456, 789).reverseIt should be (List(987, 654, 321))
     List("Hello", "Old", "Bean").reverseIt should be (List("naeB", "dlO", "olleH"))
@@ -46,7 +52,7 @@ class Module06 extends FunSuite with Matchers with StopOnFirstFailure with Sever
       "List(2.0, 4.0, 5.0).reverseIt"
     }
   }
-  */
+
 
   // Complex numbers with implicits next
 
@@ -81,13 +87,16 @@ class Module06 extends FunSuite with Matchers with StopOnFirstFailure with Sever
     // OK - the above lines work - no surprise there, but can you get the following lines to compile
     // after you uncomment them, using implicit definitions?
 
-    /*
+    implicit def intToComplex(i: Int): Complex = new Complex(i.toDouble, 0.0)
+
+    implicit def doubleToComplex(d: Double): Complex = new Complex(d, 0.0)
+
     n1 + 1 should be (new Complex(6.0, 2.0))
     n2 - 3.0 should be (new Complex(3.0, -1.0))
 
     5.5 + n1 should be (new Complex(10.5, 2.0))
     -3 + n2 should be (new Complex(3.0, -1.0))
-    */
+
   }
 
   // Returning to our list of cars from earlier, implement an implicit Ordering for car so that
@@ -95,6 +104,13 @@ class Module06 extends FunSuite with Matchers with StopOnFirstFailure with Sever
 
   case class Car(name: String, year: Int, engineSizeCCs: Int)
 
+  implicit object CarOrdering extends Ordering[Car] {
+    override def compare(x: Car, y: Car): Int = {
+      val yearDiff = x.year - y.year
+      if (yearDiff != 0) yearDiff else x.engineSizeCCs - y.engineSizeCCs
+    }
+
+  }
 
   test ("Compile and sort cars correctly") {
     val car1 = Car("Grood", 1965, 1800)

@@ -10,16 +10,31 @@ implicit object StrJsonWrite extends JSONWrite[String] {
   override def toJsonString(item: String) = s""""$item""""
 }
 
+jsonify("Hola")
+
+implicit object DoubleJsonWrite extends JSONWrite[Double] {
+  override def toJsonString(item: Double) = item.toString
+}
+
+jsonify(2.0)
+
+implicit object BooleanJsonWrite extends JSONWrite[Boolean] {
+  override def toJsonString(item: Boolean) = item.toString
+}
+
+
 implicit def listJsonWrite[T: JSONWrite] = new JSONWrite[List[T]] {
   override def toJsonString(xs: List[T]): String = {
-    val tJsonify = implicitly[JSONWrite[T]]
-    xs.map(x => tJsonify.toJsonString(x)).mkString("[", ",", "]")
+    xs.map(x => jsonify(x)).mkString("[", ",", "]")
   }
 }
 
 jsonify("Hello")
 
 jsonify(List("Hello", "World"))
+jsonify(List(1.0, 2.0, 3.0))
+jsonify(List(true,false))
+
 
 implicit object IntJsonfify extends JSONWrite[Int] {
   override def toJsonString(item: Int) = item.toString
